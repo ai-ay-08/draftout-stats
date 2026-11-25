@@ -1,40 +1,19 @@
 import json
-from urllib.parse import urlencode
+from urllib.parse import parse_qs, urlparse
 from urllib.request import Request, urlopen
 
-function_id = "42e288c1135f9c3702288b6b0e9f218434409d98553a57a05c021a9726f8d6ae"
+# Original captured request URL. parse_qs decodes the percent-encoded payload.
+captured_url = (
+    "https://draftoutmc.com/_serverFn/42e288c1135f9c3702288b6b0e9f218434409d98553a57a05c021a9726f8d6ae"
+    "?payload=%7B%22t%22%3A%7B%22t%22%3A10%2C%22i%22%3A0%2C%22p%22%3A%7B%22k%22%3A%5B%22data%22%5D%2C%22v%22%3A%5B%7B%22t%22%3A10%2C%22i%22%3A1%2C%22p%22%3A%7B%22k%22%3A%5B%22metric%22%2C%22eraId%22%2C%22inactive%22%5D%2C%22v%22%3A%5B%7B%22t%22%3A1%2C%22s%22%3A%22rating%22%7D%2C%7B%22t%22%3A2%2C%22s%22%3A1%7D%2C%7B%22t%22%3A2%2C%22s%22%3A1%7D%5D%7D%2C%22o%22%3A0%7D%5D%7D%2C%22o%22%3A0%7D%2C%22f%22%3A63%2C%22m%22%3A%5B%5D%7D"
+)
 
-# Captured TSS payload: rating leaderboard, era 1, inactive flag set to 1.
-# Modify this shit in the future because we will need a different payload shape
-# for username input, match history, replay history.
-payload = {
-    "t": {
-        "t": 10, "i": 0,
-        "p": {
-            "k": ["data"],
-            "v": [{
-                "t": 10, "i": 1,
-                "p": {
-                    "k": ["metric", "eraId", "inactive"],
-                    "v": [
-                        {"t": 1, "s": "rating"},
-                        {"t": 2, "s": 1},
-                        {"t": 2, "s": 1},
-                    ],
-                },
-                "o": 0,
-            }],
-        },
-        "o": 0,
-    },
-    "f": 63,
-    "m": [],
-}
+parsed_url = urlparse(captured_url)
+payload_text = parse_qs(parsed_url.query)["payload"][0]
+payload = json.loads(payload_text)
 
-query = urlencode({"payload": json.dumps(payload, separators=(",", ":"))})
-url = f"https://draftoutmc.com/_serverFn/{function_id}?{query}"
 request = Request(
-    url,
+    captured_url,
     headers={
         "Accept": "application/json",
         "User-Agent": (
@@ -47,5 +26,5 @@ request = Request(
 )
 
 with urlopen(request, timeout=20) as response:
-    print(f"HTTP {response.status}")
-    print(response.read().decode("utf-8", errors="replace"))
+    data = json.loads(response.read().decode("utf-8"))
+    print(json.dumps(data, indent=2))

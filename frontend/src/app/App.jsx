@@ -1,5 +1,10 @@
 import { useState } from 'react'
 
+/*
+    Set up the frontend. Send a POST request
+    to the backend with the username, and display the match history.
+*/
+
 export default function App() {
     const [username, setUsername] = useState('')
     const [matches, setMatches] = useState([])

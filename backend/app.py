@@ -45,6 +45,9 @@ def decode_tss(value, references=None):
     return value
 
 
+# Handle the POST request to this API endpoint
+# Send a request and decode the response into the matches list, and return it as JSON.
+
 @app.post("/api/matches")
 def get_matches():
     username = (request.json or {}).get("username", "").strip()

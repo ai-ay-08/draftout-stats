@@ -17,6 +17,8 @@ FUNCTION_URL = (
 # Currently outputs match history. Would also like to output goal history per game.
 # Also only supports era 1 and match type competitive for the MVP.
 
+# decode_tss decodes TSS (Typed Structured Serialization) into a Python dict using recursion.
+
 def decode_tss(value, references=None):
     if references is None:
         references = {}

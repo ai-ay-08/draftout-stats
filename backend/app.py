@@ -1,3 +1,5 @@
+# TODO: Add error handling for both endpoints 
+
 import json
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -8,9 +10,14 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-FUNCTION_URL = (
+GET_MATCHES_URL = (
     "https://draftoutmc.com/_serverFn/"
     "1bfa5793a2c7d16813601250d9f624b5aac7fc555ced2c73b76ddd190ea473d6"
+)
+
+GET_MATCH_DETAILS_URL = (
+    "https://draftoutmc.com/_serverFn/"
+    "8ee4bc64962305ab33f0c0ac06a0fa18e5970aa40a84f81ccf2c979202c9e62b"
 )
 
 # Request payload as ordinary JSON data; place the entered username in playerId.
@@ -82,7 +89,7 @@ def get_matches():
         "m": [],
     }
 
-    url = f"{FUNCTION_URL}?{urlencode({
+    url = f"{GET_MATCHES_URL}?{urlencode({
         'payload': json.dumps(payload, separators=(',', ':'))
     })}"
 
@@ -137,6 +144,102 @@ def get_matches():
         app.logger.exception("Could not fetch match history")
         return jsonify({"error": f"Could not fetch match history: {error}"}), 502
 
+
+# Handle the POST request to this API endpoint
+# The POST request contains username and matchId, and this function sends a request which
+# returns the match details for the specific username and matchId.  
+
+@app.post("/api/match-details")
+def get_match_details():
+    data = request.json or {}
+    username = data.get("username", "").strip()
+    match_id = data.get("matchId")
+
+    payload = {
+        "t": {
+            "t": 10,
+            "i": 0,
+            "p": {
+                "k": ["data"],
+                "v": [{
+                    "t": 11,
+                    "i": 1,
+                    "p": {
+                        "k": ["playerId", "matchId"],
+                        "v": [
+                            {"t": 1, "s": username},
+                            {"t": 0, "s": match_id},
+                        ],
+                    },
+                    "o": 0,
+                }],
+            },
+            "o": 0,
+        },
+        "f": 63,
+        "m": [],
+    }
+
+    url = f"{GET_MATCH_DETAILS_URL}?{urlencode({
+        'payload': json.dumps(payload, separators=(',', ':'))
+    })}"
+
+    upstream_request = Request(
+        url,
+        headers={
+            "Accept": "application/json",
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/120.0.0.0 Safari/537.36"
+            ),
+            "x-tsr-serverFn": "true",
+        },
+    )
+
+    with urlopen(upstream_request, timeout=20) as response:
+        response_data = json.loads(response.read().decode("utf-8"))
+
+    decoded = decode_tss(response_data)
+    match = (decoded.get("result") or {}).get("match") or {}
+
+    # Get the player names from the JSON
+    player_names = {
+        player.get("uuid"): player.get("username", player.get("uuid"))
+        for player in match.get("participants", [])
+    }
+
+    # Sort the completed goals
+    events = [
+        goal for goal in match.get("finalBoard", [])
+        if goal.get("completedAtMs") is not None
+        and goal.get("completedByUuid")
+    ]
+    events.sort(key=lambda goal: goal["completedAtMs"])
+
+    # Keep a running list of the score (this will be displayed in the frontend)
+    running_scores = {}
+    goal_history = []
+
+    for goal in events:
+        player_uuid = goal["completedByUuid"]
+        running_scores[player_uuid] = running_scores.get(player_uuid, 0) + 1
+
+        time_ms = goal["completedAtMs"]
+        total_seconds = time_ms // 1000
+        minutes, seconds = divmod(total_seconds, 60)
+
+        goal_history.append({
+            "player": player_names.get(player_uuid, player_uuid),
+            "goal": goal.get("id", "Unknown goal"),
+            "time": f"{minutes}:{seconds:02d}",
+            "score": " - ".join(
+                str(running_scores.get(player.get("uuid"), 0))
+                for player in match.get("participants", [])
+            ),
+        })
+
+    return jsonify({"goalHistory": goal_history})
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

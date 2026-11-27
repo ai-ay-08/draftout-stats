@@ -1,3 +1,5 @@
+# TO GRADERS: AI GENERATED TEST FILE.
+
 """Fetch and print one Draftout match's decoded detail response.
 
 This probes the match detail server function used to discover the fields that

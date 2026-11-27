@@ -1,1106 +1,1106 @@
 [
   {
     "goal_id": "BREAK_ANY_ARMOR",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "BREAK_ANY_TOOL",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "BREAK_FISHING_ROD",
-    "categories": "Shipwreck"
+    "category": "Shipwreck"
   },
   {
     "goal_id": "BREAK_SHIELD",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "BREED_4_UNIQUE_ANIMALS",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "BREED_6_UNIQUE_ANIMALS",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "BREED_8_UNIQUE_ANIMALS",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "BREED_ARMADILLO",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "BREED_CAMEL",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "BREED_CHICKEN",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "BREED_COW",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "BREED_FOX",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "BREED_FROGS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "BREED_HOGLIN",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "BREED_PIG",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "BREED_RABBIT",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "BREED_SHEEP",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "BREED_STRIDER",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "BREW_HEALING_POTION",
-    "categories": "Nether Fortress"
+    "category": "Nether Fortress"
   },
   {
     "goal_id": "BREW_INVISIBILITY_POTION",
-    "categories": "Nether Fortress"
+    "category": "Nether Fortress"
   },
   {
     "goal_id": "BREW_LINGERING_POTION",
-    "categories": "Nether Fortress"
+    "category": "Nether Fortress"
   },
   {
     "goal_id": "BREW_POISON_POTION",
-    "categories": "Nether Fortress"
+    "category": "Nether Fortress"
   },
   {
     "goal_id": "BREW_SWIFTNESS_POTION",
-    "categories": "Nether Fortress"
+    "category": "Nether Fortress"
   },
   {
     "goal_id": "BREW_WATER_BREATHING_POTION",
-    "categories": "Ocean Monument"
+    "category": "Ocean Monument"
   },
   {
     "goal_id": "BREW_WEAKNESS_POTION",
-    "categories": "Nether Fortress"
+    "category": "Nether Fortress"
   },
   {
     "goal_id": "BUNDLE_IN_BUNDLE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "COMPOST_3_UNIQUE_FOODS",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "COMPOST_5_UNIQUE_FOODS",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "COMPOST_7_UNIQUE_FOODS",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "CONSTRUCT_COPPER_GOLEM",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "CRAFT_100_UNIQUE_ITEMS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "CRAFT_20_UNIQUE_ITEMS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "CRAFT_50_UNIQUE_ITEMS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "CRAFT_ARMOR_TRIM",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DEAL_400_DAMAGE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DIE_BY_ANVIL",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DIE_BY_BEE_STING",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DIE_BY_BERRY_BUSH",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DIE_BY_CACTUS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DIE_BY_DROWNING",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DIE_BY_FALLING_OFF_VINE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DIE_BY_FALLING_STALACTITE",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "DIE_BY_FIREWORK",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DIE_BY_INTENTIONAL_GAME_DESIGN",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "DIE_BY_IRON_GOLEM",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DIE_BY_MAGIC",
-    "categories": "Swamp Hut"
+    "category": "Swamp Hut"
   },
   {
     "goal_id": "DIE_BY_TNT_MINECART",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "DIE_TO_PUFFERFISH",
-    "categories": "Ocean Ruins"
+    "category": "Ocean Ruins"
   },
   {
     "goal_id": "DIE_TO_SULFUR_CUBE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DIE_TO_WARDEN",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DRINK_HONEY_BOTTLE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DRINK_WATER_BOTTLE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "DUPLICATE_ALLAY",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "EAT_10_UNIQUE_FOOD",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "EAT_15_UNIQUE_FOOD",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "EAT_20_UNIQUE_FOOD",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "EAT_25_UNIQUE_FOOD",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "EAT_5_UNIQUE_FOOD",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "EAT_ALL_SOUPS",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "EAT_BEETROOT_SOUP",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "EAT_CAKE",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "EAT_COOKIE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "EAT_GLOW_BERRY",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "EAT_POISONOUS_POTATO",
-    "categories": "Shipwreck"
+    "category": "Shipwreck"
   },
   {
     "goal_id": "EAT_PUMPKIN_PIE",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "EAT_RABBIT_STEW",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "EAT_SUSPICIOUS_STEW",
-    "categories": "Shipwreck"
+    "category": "Shipwreck"
   },
   {
     "goal_id": "EMPTY_HUNGER_BAR",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "ENRAGE_ZOMBIFIED_PIGLIN",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "ENTER_END",
-    "categories": "Stronghold"
+    "category": "Stronghold"
   },
   {
     "goal_id": "ENTER_NETHER",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "EXPLODE_END_CRYSTAL",
-    "categories": "Stronghold"
+    "category": "Stronghold"
   },
   {
     "goal_id": "FILL_ARMOR_STAND",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "FILL_CAMPFIRE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "FILL_CHISELED_BOOKSHELF",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "FILL_DECORATED_POT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "FILL_INVENTORY_MUSHROOM_STEW",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "FILL_INVENTORY_UNIQUE_ITEMS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "FREEZE_TO_DEATH",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_10_ADVANCEMENTS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_20_ADVANCEMENTS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_30_ADVANCEMENTS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_3_STATUS_EFFECTS_AT_ONCE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_4_STATUS_EFFECTS_AT_ONCE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_6_STATUS_EFFECTS_AT_ONCE",
-    "categories": "Trial Chamber"
+    "category": "Trial Chamber"
   },
   {
     "goal_id": "GET_ABSORPTION_STATUS_EFFECT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_ANY_SPYGLASS_ADVANCEMENT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_BAD_OMEN_STATUS_EFFECT",
-    "categories": "Pillager Outpost"
+    "category": "Pillager Outpost"
   },
   {
     "goal_id": "GET_BULLSEYE_ADVANCEMENT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_EYE_SPY_ADVANCEMENT",
-    "categories": "Stronghold"
+    "category": "Stronghold"
   },
   {
     "goal_id": "GET_GLOWING_STATUS_EFFECT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_HIRED_HELP_ADVANCEMENT",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "GET_JUMP_BOOST_STATUS_EFFECT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_MINING_FATIGUE_STATUS_EFFECT",
-    "categories": "Ocean Monument"
+    "category": "Ocean Monument"
   },
   {
     "goal_id": "GET_MOB_KABOB_ADVANCEMENT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_NAUSEA_STATUS_EFFECT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_NOT_QUITE_NINE_LIVES_ADVANCEMENT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_OH_SHINY_ADVANCEMENT",
-    "categories": "Bastion"
+    "category": "Bastion"
   },
   {
     "goal_id": "GET_POISON_STATUS_EFFECT",
-    "categories": "Swamp Hut"
+    "category": "Swamp Hut"
   },
   {
     "goal_id": "GET_POSTMORTAL_ADVANCEMENT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_POWER_OF_BOOKS_ADVANCEMENT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_SNIPER_DUEL_ADVANCEMENT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "GET_STAY_HYDRATED_ADVANCEMENT",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "GET_THIS_BOAT_HAS_LEGS_ADVANCEMENT",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "GET_WAX_OFF_ADVANCEMENT",
-    "categories": "Trial Chamber"
+    "category": "Trial Chamber"
   },
   {
     "goal_id": "GET_WAX_ON_ADVANCEMENT",
-    "categories": "Trial Chamber"
+    "category": "Trial Chamber"
   },
   {
     "goal_id": "GET_WEAKNESS_STATUS_EFFECT",
-    "categories": "Swamp Hut"
+    "category": "Swamp Hut"
   },
   {
     "goal_id": "GET_WHAT_A_DEAL_ADVANCEMENT",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "GIVE_DIAMOND_TO_FOX",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "HAVE_YOUR_SHIELD_DISABLED",
-    "categories": "Pillager Outpost"
+    "category": "Pillager Outpost"
   },
   {
     "goal_id": "IGNITE_TNT_SULFUR_CUBE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "ITEM_FRAME_IN_ITEM_FRAME",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "KILL_100_MOBS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "KILL_10_UNIQUE_HOSTILE_MOBS",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "KILL_13_UNIQUE_HOSTILE_MOBS",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "KILL_15_UNIQUE_HOSTILE_MOBS",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "KILL_20_ARTHROPOD_MOBS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "KILL_30_UNDEAD_MOBS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "KILL_7_UNIQUE_HOSTILE_MOBS",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "KILL_ALL_RAID_MOBS",
-    "categories": "Pillager Outpost"
+    "category": "Pillager Outpost"
   },
   {
     "goal_id": "KILL_BAT",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "KILL_BOGGED",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "KILL_BREEZE_USING_WIND_CHARGE",
-    "categories": "Trial Chamber"
+    "category": "Trial Chamber"
   },
   {
     "goal_id": "KILL_COLORED_SHEEP",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "KILL_GUARDIAN",
-    "categories": "Ocean Monument"
+    "category": "Ocean Monument"
   },
   {
     "goal_id": "KILL_PILLAGER_USING_CROSSBOW",
-    "categories": "Pillager Outpost"
+    "category": "Pillager Outpost"
   },
   {
     "goal_id": "KILL_SILVERFISH",
-    "categories": "Stronghold"
+    "category": "Stronghold"
   },
   {
     "goal_id": "KILL_SNOW_GOLEM",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "KILL_SNOW_GOLEM_IN_NETHER",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "KILL_STRAY",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "KILL_WARDEN",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "KILL_WITCH",
-    "categories": "Swamp Hut"
+    "category": "Swamp Hut"
   },
   {
     "goal_id": "KILL_ZOGLIN",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "KILL_ZOMBIE_VILLAGER",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "LEASH_4_UNIQUE_MOBS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "LEASH_6_UNIQUE_MOBS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "LEASH_8_UNIQUE_MOBS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "LEASH_IRON_GOLEM",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "LIGHT_CANDLE",
-    "categories": "Trial Chamber"
+    "category": "Trial Chamber"
   },
   {
     "goal_id": "LOCK_MAP",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "MINE_3_TYPES_OF_ICE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "MINE_CRAFTER",
-    "categories": "Trial Chamber"
+    "category": "Trial Chamber"
   },
   {
     "goal_id": "MINE_DIAMOND_ORE",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "MINE_MOB_SPAWNER",
-    "categories": "Stronghold"
+    "category": "Stronghold"
   },
   {
     "goal_id": "MINE_OBSIDIAN",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "MINE_SEA_LANTERN",
-    "categories": "Ocean Monument"
+    "category": "Ocean Monument"
   },
   {
     "goal_id": "MINE_TURTLE_EGG",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "NAME_SHEEP_JEB",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_12_UNIQUE_DYES",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_16_GLOW_LICHEN",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_2_ARMOR_TRIMS",
-    "categories": "Desert Pyramid"
+    "category": "Desert Pyramid"
   },
   {
     "goal_id": "OBTAIN_32_ARROWS",
-    "categories": "Jungle Temple"
+    "category": "Jungle Temple"
   },
   {
     "goal_id": "OBTAIN_3_BANNER_PATTERNS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_3_HORSE_ARMORS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_3_UNIQUE_MUSIC_DISCS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_4_UNIQUE_SAPLINGS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_4_UNIQUE_SEEDS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_64_COARSE_DIRT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_64_COLORED_CONCRETE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_64_COLORED_WOOL",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_64_NAME_TAGS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_64_OF_ANY_FLOWER",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_6_UNIQUE_BUCKETS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_6_UNIQUE_FLOWERS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_7_UNIQUE_WORKSTATIONS",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "OBTAIN_ACTIVATOR_RAIL",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "OBTAIN_ALL_FURNACES",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_ALL_MINECARTS",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "OBTAIN_ALL_MUSHROOMS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_ALL_PUMPKINS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_ALL_RAW_ORE_BLOCKS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_ALL_TORCHES",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_BAMBOO_MOSAIC_STAIRS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_BELL",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "OBTAIN_BONE_BLOCK",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "OBTAIN_BOOKSHELF",
-    "categories": "Stronghold"
+    "category": "Stronghold"
   },
   {
     "goal_id": "OBTAIN_BRICK_WALL",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_CLOCK",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_COAL_BLOCK",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_COBWEB",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_COLORED_HARNESS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_COPPER_CHEST",
-    "categories": "Trial Chamber"
+    "category": "Trial Chamber"
   },
   {
     "goal_id": "OBTAIN_COPPER_TOOLS",
-    "categories": "Trial Chamber"
+    "category": "Trial Chamber"
   },
   {
     "goal_id": "OBTAIN_DAYLIGHT_DETECTOR",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_DEAD_BUSH",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_DETECTOR_RAIL",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "OBTAIN_DIAMOND_TOOLS",
-    "categories": "Desert Pyramid"
+    "category": "Desert Pyramid"
   },
   {
     "goal_id": "OBTAIN_DISPENSER",
-    "categories": "Jungle Temple"
+    "category": "Jungle Temple"
   },
   {
     "goal_id": "OBTAIN_DRIED_KELP_BLOCK",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_EMERALD_BLOCK",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_ENCHANT_BOTTLE",
-    "categories": "Desert Pyramid"
+    "category": "Desert Pyramid"
   },
   {
     "goal_id": "OBTAIN_ENDER_CHEST",
-    "categories": "Stronghold"
+    "category": "Stronghold"
   },
   {
     "goal_id": "OBTAIN_FLOWERING_AZALEA",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_GILDED_BLACKSTONE",
-    "categories": "Bastion"
+    "category": "Bastion"
   },
   {
     "goal_id": "OBTAIN_GOLDEN_TOOLS",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "OBTAIN_HEART_OF_THE_SEA",
-    "categories": "Shipwreck"
+    "category": "Shipwreck"
   },
   {
     "goal_id": "OBTAIN_IRON_TOOLS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_LODESTONE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_MOSSY_STONE_BRICK_WALL",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_MUD_BRICK_WALL",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_NETHERITE_SCRAP",
-    "categories": "Bastion"
+    "category": "Bastion"
   },
   {
     "goal_id": "OBTAIN_PISTON",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_POTTERY_SHERD",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_POWDER_SNOW_BUCKET",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_POWERED_RAIL",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "OBTAIN_REDSTONE_COMPARATOR",
-    "categories": "Jungle Temple"
+    "category": "Jungle Temple"
   },
   {
     "goal_id": "OBTAIN_REDSTONE_LAMP",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_REDSTONE_REPEATER",
-    "categories": "Jungle Temple"
+    "category": "Jungle Temple"
   },
   {
     "goal_id": "OBTAIN_RED_NETHER_BRICK_STAIRS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_SCAFFOLDING",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_SMOOTH_BASALT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_SMOOTH_QUARTZ_STAIRS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_SOUL_LANTERN",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_STACK_OF_64",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_STONE_TOOLS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_STRAW_BED",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_SULFUR_CUBE_BUCKET",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_SUSPICIOUS_BLOCK",
-    "categories": "Desert Pyramid"
+    "category": "Desert Pyramid"
   },
   {
     "goal_id": "OBTAIN_TNT",
-    "categories": "Desert Pyramid"
+    "category": "Desert Pyramid"
   },
   {
     "goal_id": "OBTAIN_TROPICAL_FISH_BUCKET",
-    "categories": "Ocean Ruins"
+    "category": "Ocean Ruins"
   },
   {
     "goal_id": "OBTAIN_WOODEN_TOOLS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "OBTAIN_WRITTEN_BOOK",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "PLACE_HANGING_SIGN",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "PLACE_PAINTING",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "PUT_BANNER_ON_SHIELD",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "PUT_FLOWER_IN_POT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "PUT_WOLF_ARMOR_ON_WOLF",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "REACH_BEDROCK",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "REACH_EXP_LEVEL_10",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "REACH_EXP_LEVEL_20",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "REACH_HEIGHT_LIMIT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "REACH_NETHER_ROOF",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "REMOVE_STATUS_EFFECT_USING_MILK",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "RIDE_GEYSER",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "RIDE_MINECART",
-    "categories": "Mineshaft"
+    "category": "Mineshaft"
   },
   {
     "goal_id": "RIDE_PIG",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "SHOOT_FIREWORK_FROM_CROSSBOW",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "SIT_ON_COLORED_CUSHION",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "SPRINT_1_KM",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "SPY_10_UNIQUE_MOBS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "SPY_20_UNIQUE_MOBS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "SPY_IRON_GOLEM",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "SPY_PIGLIN_BRUTE",
-    "categories": "Bastion"
+    "category": "Bastion"
   },
   {
     "goal_id": "TAKE_200_DAMAGE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "TAME_CAT",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "TAME_HORSE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "TAME_NAUTILUS",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "TAME_PARROT",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "TAME_WOLF",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "TUNE_NOTEBLOCK",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "TURN_GHAST_UPSIDE_DOWN",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "USE_ANVIL",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "USE_BREWING_STAND",
-    "categories": "Nether Fortress"
+    "category": "Nether Fortress"
   },
   {
     "goal_id": "USE_BRUSH_ON_SUSPICIOUS_BLOCK",
-    "categories": "Desert Pyramid"
+    "category": "Desert Pyramid"
   },
   {
     "goal_id": "USE_CARTOGRAPHY_TABLE",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "USE_CAULDRON",
-    "categories": "Village"
+    "category": "Village"
   },
   {
     "goal_id": "USE_COMPOSTER",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "USE_ENCHANTING_TABLE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "USE_GLOW_INK_NETHER",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "USE_GOLDEN_DANDELION",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "USE_GRINDSTONE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "USE_JUKEBOX",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "USE_LOOM",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "USE_SMITHING_TABLE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "USE_STONECUTTER",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "WEAR_CARVED_PUMPKIN_FOR_5_MINUTES",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "WEAR_CHAIN_ARMOR_PIECE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "WEAR_COPPER_ARMOR",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "WEAR_DIAMOND_ARMOR",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "WEAR_FULL_ENCHANTED_ARMOR",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "WEAR_GOLDEN_ARMOR",
-    "categories": "Ruined Portal"
+    "category": "Ruined Portal"
   },
   {
     "goal_id": "WEAR_IRON_ARMOR",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "WEAR_UNIQUE_ARMOR",
-    "categories": "General"
+    "category": "General"
   },
   {
     "goal_id": "WEAR_UNIQUE_COLORED_LEATHER_ARMOR",
-    "categories": "General"
+    "category": "General"
   }
 ]

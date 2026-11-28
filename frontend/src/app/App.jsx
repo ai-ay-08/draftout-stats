@@ -12,24 +12,45 @@ export default function App() {
     const [matches, setMatches] = useState([])
     const [expandedMatchId, setExpandedMatchId] = useState(null)
     const [goalHistory, setGoalHistory] = useState([])
+    const [stats, setStats] = useState(null)
 
     // Send a username and obtain the match history.
     async function handleSubmit(event) {
         event.preventDefault()
 
-        const response = await fetch('/api/matches', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username })
-        })
+        setMatches([])
+        setExpandedMatchId(null)
+        setGoalHistory([])
+        setStats(null)
 
-        const data = await response.json()
+        // Start both the matches request and stats request together.
+        const matchesRequest = (async () => {
+            const response = await fetch('/api/matches', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username }),
+            })
 
-        if (response.ok) {
-            setMatches(data.matches)
-        }
+            const data = await response.json()
+
+            if (response.ok) {
+                setMatches(data.matches ?? [])
+            }
+        })()
+        
+        const statsRequest = (async () => {
+            const response = await fetch('/api/category-sample', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username }),
+            })
+
+            const data = await response.json()
+            
+            if (response.ok) {
+                setStats(data);
+            }
+        })()
     }
 
     // Send a username and matchId and obtain the goal history for that match.
@@ -73,6 +94,19 @@ export default function App() {
                 <button type="submit">Submit</button>
             </form>
 
+            {stats && (
+                <section>
+                    <h2>Category statistics for {stats.username}</h2>
+                    <p>Matches sampled: {stats.matches_sampled}</p>
+
+                    <h3>Goal appearances by category</h3>
+                    <CategoryCounts counts={stats.goals_seen} />
+
+                    <h3>Goals completed by category</h3>
+                    <CategoryCounts counts={stats.goals_completed} />
+                </section>
+            )}
+
             <ul>
                 {matches.map((match, index) => {
                     // Display the match history & the goal history for the selected match.
@@ -106,5 +140,25 @@ export default function App() {
                 })}
             </ul>
         </main>
+    )
+}
+
+// The CategoryCounts function helps display the counts for each category in HTML
+
+function CategoryCounts({ counts = {} }) {
+    const entries = Object.entries(counts)
+
+    if (entries.length === 0) {
+        return <p>No categorized goals found.</p>
+    }
+
+    return (
+        <ul>
+            {entries.map(([category, count]) => (
+                <li key={category}>
+                    {category}: {count}
+                </li>
+            ))}
+        </ul>
     )
 }

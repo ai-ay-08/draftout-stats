@@ -209,6 +209,34 @@ def fetch_match(username, match_id):
     decoded = decode_tss(response_data)
     match = (decoded.get("result") or {}).get("match") or {}
 
+    return match 
+
+
+"""API ENDPOINTS"""
+
+# Handle the POST request to this API endpoint
+# Send a request and decode the response into the matches list, and return it as JSON.
+
+@app.post("/api/matches")
+def get_matches():
+    data = request.json or {}
+    username = data.get("username", "").strip()
+
+    return jsonify({"matches": fetch_matches(username)})
+
+
+# Handle the POST request to this API endpoint
+# The POST request contains username and matchId, and this function sends a request which
+# returns the match details for the specific username and matchId.  
+
+@app.post("/api/match-details")
+def get_match_details():
+    data = request.json or {}
+    username = data.get("username", "").strip()
+    match_id = data.get("matchId")
+
+    match = fetch_match(username, match_id)
+
     # Get the player names from the JSON
     player_names = {
         player.get("uuid"): player.get("username", player.get("uuid"))
@@ -245,33 +273,7 @@ def fetch_match(username, match_id):
             ),
         })
 
-    return goal_history
-
-
-"""API ENDPOINTS"""
-
-# Handle the POST request to this API endpoint
-# Send a request and decode the response into the matches list, and return it as JSON.
-
-@app.post("/api/matches")
-def get_matches():
-    data = request.json or {}
-    username = data.get("username", "").strip()
-
-    return jsonify({"matches": fetch_matches(username)})
-
-
-# Handle the POST request to this API endpoint
-# The POST request contains username and matchId, and this function sends a request which
-# returns the match details for the specific username and matchId.  
-
-@app.post("/api/match-details")
-def get_match_details():
-    data = request.json or {}
-    username = data.get("username", "").strip()
-    match_id = data.get("matchId")
-
-    return jsonify({"goalHistory": fetch_match(username, match_id)})
+    return jsonify({"goalHistory": goal_history})
 
 
 # Handle the POST request to this API endpoint
@@ -297,7 +299,7 @@ def category_sample():
         match_id = match_summary.get("matchId")
 
         match = fetch_match(username, match_id)
-        participants = match.get("participants") or {}
+        participants = match.get("participants") or []
 
         player_uuids = {
             str(player.get("uuid"))

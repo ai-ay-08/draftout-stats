@@ -96,7 +96,6 @@ export default function App() {
 
             <div className="results-layout">
                 <section className="match-history">
-                    <h2>Match history</h2>
                     <ul>
                         {matches.map((match, index) => {
                             // Display the match history & the goal history for the selected match.

@@ -1,6 +1,12 @@
 # TODO: Add error handling for both endpoints 
 
 import json
+import os
+import random
+from collections import Counter
+
+import psycopg
+
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -9,6 +15,9 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+
+
+"""CONFIGURATION VARS"""
 
 GET_MATCHES_URL = (
     "https://draftoutmc.com/_serverFn/"
@@ -20,9 +29,18 @@ GET_MATCH_DETAILS_URL = (
     "8ee4bc64962305ab33f0c0ac06a0fa18e5970aa40a84f81ccf2c979202c9e62b"
 )
 
-# Request payload as ordinary JSON data; place the entered username in playerId.
-# Currently outputs match history. Would also like to output goal history per game.
+USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/120.0.0.0 Safari/537.36"
+)
+
+# Request payload as ordinary JSON data; place the entered username in playerId
+# Also request payload using matchId for match details / goal history.
 # Also only supports era 1 and match type competitive for the MVP.
+
+
+"""HELPERS"""
 
 # decode_tss decodes TSS (Typed Structured Serialization) into a Python dict using recursion.
 
@@ -54,15 +72,23 @@ def decode_tss(value, references=None):
     return value
 
 
-# Handle the POST request to this API endpoint
-# Send a request and decode the response into the matches list, and return it as JSON.
+# get_goal_categories loads goal categories from Supabase.
 
-@app.post("/api/matches")
-def get_matches():
-    username = (request.json or {}).get("username", "").strip()
-    if not username:
-        return jsonify({"error": "Enter a username."}), 400
+def get_goal_categories():
+    database_url = os.environ["DATABASE_URL"]
 
+    with psycopg.connect(database_url, connect_timeout=10) as connection:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT goal_id, category FROM public.goals")
+            return {
+                str(goal_id): category
+                for goal_id, category in cursor.fetchall()
+            }
+
+
+# fetch_matches fetches the matches for a given username.
+
+def fetch_matches(username):
     payload = {
         "t": {
             "t": 10,
@@ -89,72 +115,56 @@ def get_matches():
         "m": [],
     }
 
-    url = f"{GET_MATCHES_URL}?{urlencode({
+    request_url = f"{GET_MATCHES_URL}?{urlencode({
         'payload': json.dumps(payload, separators=(',', ':'))
     })}"
 
-    upstream_request = Request(
-        url,
+    request = Request(
+        request_url,
         headers={
             "Accept": "application/json",
-            "User-Agent": (
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/120.0.0.0 Safari/537.36"
-            ),
+            "User-Agent": USER_AGENT,
             "x-tsr-serverFn": "true",
-        },
+        }
     )
 
-    try:
-        with urlopen(upstream_request, timeout=20) as response:
-            response_data = json.loads(response.read().decode("utf-8"))
+    with urlopen(request, timeout=20) as response:
+        response_data = json.loads(response.read().decode("utf-8"))
 
-        decoded = decode_tss(response_data)
-        result = decoded.get("result") or {}
-        games = result.get("series") or []
+    decoded = decode_tss(response_data)
+    result = decoded.get("result") or {}
+    games = result.get("series") or []
 
-        matches = []
-        for game in games:
-            score = game.get("score")
-            opponent_score = game.get("opponentScore")
+    matches = []
+    for game in games:
+        score = game.get("score")
+        opponent_score = game.get("opponentScore")
 
-            if score is not None and opponent_score is not None:
-                outcome = (
-                    "W" if score > opponent_score
-                    else "L" if score < opponent_score
-                    else "D"
-                )
-                score_text = f"{score}-{opponent_score}"
-            else:
-                outcome = game.get("outcome", "?")
-                score_text = "score unknown"
+        if score is not None and opponent_score is not None:
+            outcome = (
+                "W" if score > opponent_score
+                else "L" if score < opponent_score
+                else "D"
+            )
+            score_text = f"{score}-{opponent_score}"
+        else:
+            outcome = game.get("outcome", "?")
+            score_text = "score unknown"
 
-            matches.append({
-                "matchId": game.get("matchId", "?"),
-                "outcome": outcome,
-                "score": score_text,
-                "opponent": game.get("opponentName", "unknown"),
-                "ratingChange": game.get("ratingChange", "?"),
-            })
+        matches.append({
+            "matchId": game.get("matchId", "?"),
+            "outcome": outcome,
+            "score": score_text,
+            "opponent": game.get("opponentName", "unknown"),
+            "ratingChange": game.get("ratingChange", "?"),
+        })
 
-        return jsonify({"matches": matches})
-
-    except Exception as error:
-        app.logger.exception("Could not fetch match history")
-        return jsonify({"error": f"Could not fetch match history: {error}"}), 502
+    return matches
 
 
-# Handle the POST request to this API endpoint
-# The POST request contains username and matchId, and this function sends a request which
-# returns the match details for the specific username and matchId.  
+# fetch_match fetches match details / goal history for a given username and match_id.
 
-@app.post("/api/match-details")
-def get_match_details():
-    data = request.json or {}
-    username = data.get("username", "").strip()
-    match_id = data.get("matchId")
-
+def fetch_match(username, match_id):
     payload = {
         "t": {
             "t": 10,
@@ -180,24 +190,20 @@ def get_match_details():
         "m": [],
     }
 
-    url = f"{GET_MATCH_DETAILS_URL}?{urlencode({
+    request_url = f"{GET_MATCH_DETAILS_URL}?{urlencode({
         'payload': json.dumps(payload, separators=(',', ':'))
     })}"
 
-    upstream_request = Request(
-        url,
+    request = Request(
+        request_url,
         headers={
             "Accept": "application/json",
-            "User-Agent": (
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/120.0.0.0 Safari/537.36"
-            ),
+            "User-Agent": USER_AGENT,
             "x-tsr-serverFn": "true",
-        },
+        }
     )
 
-    with urlopen(upstream_request, timeout=20) as response:
+    with urlopen(request, timeout=20) as response:
         response_data = json.loads(response.read().decode("utf-8"))
 
     decoded = decode_tss(response_data)
@@ -239,7 +245,37 @@ def get_match_details():
             ),
         })
 
-    return jsonify({"goalHistory": goal_history})
+    return goal_history
+
+
+"""API ENDPOINTS"""
+
+# Handle the POST request to this API endpoint
+# Send a request and decode the response into the matches list, and return it as JSON.
+
+@app.post("/api/matches")
+def get_matches():
+    data = request.json or {}
+    username = data.get("username", "").strip()
+
+    return jsonify({"matches": fetch_matches(username)})
+
+
+# Handle the POST request to this API endpoint
+# The POST request contains username and matchId, and this function sends a request which
+# returns the match details for the specific username and matchId.  
+
+@app.post("/api/match-details")
+def get_match_details():
+    data = request.json or {}
+    username = data.get("username", "").strip()
+    match_id = data.get("matchId")
+
+    return jsonify({"goalHistory": fetch_match(username, match_id)})
+
+
+
+
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

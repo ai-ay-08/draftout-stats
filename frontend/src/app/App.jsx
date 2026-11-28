@@ -94,51 +94,56 @@ export default function App() {
                 <button type="submit">Submit</button>
             </form>
 
-            {stats && (
-                <section>
-                    <h2>Category statistics for {stats.username}</h2>
-                    <p>Matches sampled: {stats.matches_sampled}</p>
+            <div className="results-layout">
+                <section className="match-history">
+                    <h2>Match history</h2>
+                    <ul>
+                        {matches.map((match, index) => {
+                            // Display the match history & the goal history for the selected match.
 
-                    <h3>Goal appearances by category</h3>
-                    <CategoryCounts counts={stats.goals_seen} />
+                            const isExpanded = expandedMatchId === match.matchId
+                            const events = goalHistory
 
-                    <h3>Goals completed by category</h3>
-                    <CategoryCounts counts={stats.goals_completed} />
+                            return (
+                                <li key={`${match.matchId}-${index}`}>
+                                    <button 
+                                        type="button"
+                                        aria-expanded={isExpanded}
+                                        onClick={() => handleMatchClick(match)}
+                                    >
+                                        Match {match.matchId}: {match.outcome} {match.score} vs{' '}
+                                        {match.opponent} (rating change: {match.ratingChange})
+                                    </button>
+
+                                    {isExpanded && (
+                                        <ul>
+                                            {events.map((event, eventIndex) => (
+                                                <li key={`${match.matchId}-${eventIndex}`}>
+                                                    {event.player} completes {event.goal} in {event.time}.
+                                                    {' '}Score: {event.score}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </li>
+                            )
+                        })}
+                    </ul>
                 </section>
-            )}
 
-            <ul>
-                {matches.map((match, index) => {
-                    // Display the match history & the goal history for the selected match.
+                {stats && (
+                    <section className="category-stats">
+                        <h2>Category statistics for {stats.username}</h2>
+                        <p>Matches sampled: {stats.matches_sampled}</p>
 
-                    const isExpanded = expandedMatchId === match.matchId
-                    const events = goalHistory
+                        <h3>Goal appearances by category</h3>
+                        <CategoryCounts counts={stats.goals_seen} />
 
-                    return (
-                        <li key={`${match.matchId}-${index}`}>
-                            <button 
-                                type="button"
-                                aria-expanded={isExpanded}
-                                onClick={() => handleMatchClick(match)}
-                            >
-                                Match {match.matchId}: {match.outcome} {match.score} vs{' '}
-                                {match.opponent} (rating change: {match.ratingChange})
-                            </button>
-
-                            {isExpanded && (
-                                <ul>
-                                    {events.map((event, eventIndex) => (
-                                        <li key={`${match.matchId}-${eventIndex}`}>
-                                            {event.player} completes {event.goal} in {event.time}.
-                                            {' '}Score: {event.score}
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </li>
-                    )
-                })}
-            </ul>
+                        <h3>Goals completed by category</h3>
+                        <CategoryCounts counts={stats.goals_completed} />
+                    </section>
+                )}
+            </div>
         </main>
     )
 }

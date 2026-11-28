@@ -274,7 +274,67 @@ def get_match_details():
     return jsonify({"goalHistory": fetch_match(username, match_id)})
 
 
+# Handle the POST request to this API endpoint
+# The POST request contains username, and this function samples 30 matches from the 
+# match history and counts the number of goals completed by category, and returns it as JSON.
 
+@app.post("/api/category-sample")
+def category_sample():
+    data = request.json or {}
+    username = data.get("username", "").strip()
+
+    # Fetch a sample of 30 matches
+    categories_by_goal = get_goal_categories()
+    all_matches = fetch_matches(username)
+    sample = random.sample(all_matches, min(30, len(all_matches)))
+
+    goals_seen = Counter()
+    goals_completed = Counter()
+
+    # For each goal history in the sample, add goals to both ALL goals seen and 
+    # COMPLETED goals by the player
+    for match_summary in sample:
+        match_id = match_summary.get("matchId")
+
+        match = fetch_match(username, match_id)
+        participants = match.get("participants") or {}
+
+        player_uuids = {
+            str(player.get("uuid"))
+            for player in participants
+            if str(player.get("username", "")) == username
+        }
+
+        for goal in match.get("finalBoard") or []:
+            if not isinstance(goal, dict) or goal.get("id") is None:
+                continue
+
+            goal_id = str(goal["id"])
+            goals_seen[goal_id] += 1
+
+            if (
+                goal.get("completedAtMs") is not None
+                and str(goal.get("completedByUuid")) in player_uuids
+            ): 
+                goals_completed[goal_id] += 1
+
+    # Convert the Counter instance to a dict that tracks the number of times a goal category appears.
+    def counts_by_category(goal_occurrences):
+        counts = Counter()
+
+        for goal_id, occurrences in goal_occurrences.items():
+            category = categories_by_goal.get(goal_id)
+            if category is not None:
+                counts[category] += occurrences
+
+        return dict(sorted(counts.items()))
+
+    return jsonify({
+        "username": username,
+        "matches_sampled": len(sample),
+        "goals_seen": counts_by_category(goals_seen),
+        "goals_completed": counts_by_category(goals_completed),
+    })
 
 
 if __name__ == "__main__":

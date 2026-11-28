@@ -12,24 +12,45 @@ export default function App() {
     const [matches, setMatches] = useState([])
     const [expandedMatchId, setExpandedMatchId] = useState(null)
     const [goalHistory, setGoalHistory] = useState([])
+    const [stats, setStats] = useState(null)
 
     // Send a username and obtain the match history.
     async function handleSubmit(event) {
         event.preventDefault()
 
-        const response = await fetch('/api/matches', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username })
-        })
+        setMatches([])
+        setExpandedMatchId(null)
+        setGoalHistory([])
+        setStats(null)
 
-        const data = await response.json()
+        // Start both the matches request and stats request together.
+        const matchesRequest = (async () => {
+            const response = await fetch('/api/matches', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username }),
+            })
 
-        if (response.ok) {
-            setMatches(data.matches)
-        }
+            const data = await response.json()
+
+            if (response.ok) {
+                setMatches(data.matches ?? [])
+            }
+        })()
+        
+        const statsRequest = (async () => {
+            const response = await fetch('/api/category-sample', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username }),
+            })
+
+            const data = await response.json()
+            
+            if (response.ok) {
+                setStats(data);
+            }
+        })()
     }
 
     // Send a username and matchId and obtain the goal history for that match.
@@ -73,38 +94,75 @@ export default function App() {
                 <button type="submit">Submit</button>
             </form>
 
-            <ul>
-                {matches.map((match, index) => {
-                    // Display the match history & the goal history for the selected match.
+            <div className="results-layout">
+                <section className="match-history">
+                    <ul>
+                        {matches.map((match, index) => {
+                            // Display the match history & the goal history for the selected match.
 
-                    const isExpanded = expandedMatchId === match.matchId
-                    const events = goalHistory
+                            const isExpanded = expandedMatchId === match.matchId
+                            const events = goalHistory
 
-                    return (
-                        <li key={`${match.matchId}-${index}`}>
-                            <button 
-                                type="button"
-                                aria-expanded={isExpanded}
-                                onClick={() => handleMatchClick(match)}
-                            >
-                                Match {match.matchId}: {match.outcome} {match.score} vs{' '}
-                                {match.opponent} (rating change: {match.ratingChange})
-                            </button>
+                            return (
+                                <li key={`${match.matchId}-${index}`}>
+                                    <button 
+                                        type="button"
+                                        aria-expanded={isExpanded}
+                                        onClick={() => handleMatchClick(match)}
+                                    >
+                                        Match {match.matchId}: {match.outcome} {match.score} vs{' '}
+                                        {match.opponent} (rating change: {match.ratingChange})
+                                    </button>
 
-                            {isExpanded && (
-                                <ul>
-                                    {events.map((event, eventIndex) => (
-                                        <li key={`${match.matchId}-${eventIndex}`}>
-                                            {event.player} completes {event.goal} in {event.time}.
-                                            {' '}Score: {event.score}
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </li>
-                    )
-                })}
-            </ul>
+                                    {isExpanded && (
+                                        <ul>
+                                            {events.map((event, eventIndex) => (
+                                                <li key={`${match.matchId}-${eventIndex}`}>
+                                                    {event.player} completes {event.goal} in {event.time}.
+                                                    {' '}Score: {event.score}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </section>
+
+                {stats && (
+                    <section className="category-stats">
+                        <h2>Category statistics for {stats.username}</h2>
+                        <p>Matches sampled: {stats.matches_sampled}</p>
+
+                        <h3>Goal appearances by category</h3>
+                        <CategoryCounts counts={stats.goals_seen} />
+
+                        <h3>Goals completed by category</h3>
+                        <CategoryCounts counts={stats.goals_completed} />
+                    </section>
+                )}
+            </div>
         </main>
+    )
+}
+
+// The CategoryCounts function helps display the counts for each category in HTML
+
+function CategoryCounts({ counts = {} }) {
+    const entries = Object.entries(counts)
+
+    if (entries.length === 0) {
+        return <p>No categorized goals found.</p>
+    }
+
+    return (
+        <ul>
+            {entries.map(([category, count]) => (
+                <li key={category}>
+                    {category}: {count}
+                </li>
+            ))}
+        </ul>
     )
 }
